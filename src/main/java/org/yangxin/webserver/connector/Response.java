@@ -1,7 +1,10 @@
 package org.yangxin.webserver.connector;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletResponse;
 import java.io.*;
 import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * HTTP/1.1 200 OK
@@ -9,7 +12,7 @@ import java.util.Arrays;
  * @author yangxin
  * 2020/10/22 14:12
  */
-public class Response {
+public class Response implements ServletResponse {
 
     private static final int BUFFER_SIZE = 1024;
 
@@ -50,5 +53,85 @@ public class Response {
                 outputStream.write(buffer, 0, length);
             }
         }
+    }
+
+    @Override
+    public String getCharacterEncoding() {
+        return null;
+    }
+
+    @Override
+    public String getContentType() {
+        return null;
+    }
+
+    @Override
+    public ServletOutputStream getOutputStream() {
+        return null;
+    }
+
+    @Override
+    public PrintWriter getWriter() {
+        return new PrintWriter(outputStream, true);
+    }
+
+    @Override
+    public void setCharacterEncoding(String charset) {
+
+    }
+
+    @Override
+    public void setContentLength(int len) {
+
+    }
+
+    @Override
+    public void setContentLengthLong(long len) {
+
+    }
+
+    @Override
+    public void setContentType(String type) {
+
+    }
+
+    @Override
+    public void setBufferSize(int size) {
+
+    }
+
+    @Override
+    public int getBufferSize() {
+        return 0;
+    }
+
+    @Override
+    public void flushBuffer() {
+
+    }
+
+    @Override
+    public void resetBuffer() {
+
+    }
+
+    @Override
+    public boolean isCommitted() {
+        return false;
+    }
+
+    @Override
+    public void reset() {
+
+    }
+
+    @Override
+    public void setLocale(Locale loc) {
+
+    }
+
+    @Override
+    public Locale getLocale() {
+        return null;
     }
 }
