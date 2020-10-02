@@ -18,7 +18,7 @@ public class Request {
 
     private static final int BUFFER_SIZE = 1024;
 
-    private InputStream inputStream;
+    private final InputStream inputStream;
     private String uri;
 
     public Request(InputStream inputStream) {
