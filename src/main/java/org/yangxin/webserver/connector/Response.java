@@ -13,7 +13,7 @@ public class Response {
     private static final int BUFFER_SIZE = 1024;
 
     private Request request;
-    private OutputStream outputStream;
+    private final OutputStream outputStream;
 
     public Response(OutputStream outputStream) {
         this.outputStream = outputStream;
@@ -35,6 +35,7 @@ public class Response {
 
     private void write(File resource, HttpStatus status) throws IOException {
         try (FileInputStream fileInputStream = new FileInputStream(resource)) {
+            // 先写入响应状态
             outputStream.write(ConnectorUtils.renderStatus(status).getBytes());
 
             byte[] buffer = new byte[BUFFER_SIZE];

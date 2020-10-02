@@ -2,9 +2,7 @@ package org.yangxin.webserver.connector;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import org.yangxin.webserver.util.TestUtils;
 
 /**
  * @author yangxin
@@ -15,11 +13,8 @@ public class RequestTest {
     private static final String VALID_REQUEST = "GET /index.html HTTP/1.1";
 
     @Test
-    public void parse() {
-        InputStream inputStream = new ByteArrayInputStream(VALID_REQUEST.getBytes());
-        Request request = new Request(inputStream);
-        request.parse();
-
+    public void givenValidRequestThenExtractUri() {
+        Request request = TestUtils.createRequest(VALID_REQUEST);
         Assert.assertEquals("/index.html", request.getRequestURI());
     }
 }
