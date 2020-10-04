@@ -23,6 +23,9 @@ public class ServletProcessor {
     }
 
     public Servlet getServlet(URLClassLoader loader, Request request) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        /*
+            /servlet/TimeServlet
+         */
         String uri = request.getRequestURI();
         String servletName = uri.substring(uri.lastIndexOf("/") + 1);
 

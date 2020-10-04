@@ -15,7 +15,7 @@ import java.util.Map;
 @SuppressWarnings({"rawtypes", "unchecked", "deprecation"})
 public class RequestFacade implements ServletRequest {
 
-    private ServletRequest request;
+    private final ServletRequest request;
 
     public RequestFacade(Request request) {
         this.request = request;

@@ -3,7 +3,6 @@ package org.yangxin.webserver.connector;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.ServletResponse;
 import java.io.*;
-import java.util.Arrays;
 import java.util.Locale;
 
 /**
