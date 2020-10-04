@@ -1,9 +1,9 @@
 //import connector.ConnectorUtils;
 //import connector.HttpStatus;
 //import connector.Request;
+
 import org.yangxin.webserver.connector.ConnectorUtils;
 import org.yangxin.webserver.connector.HttpStatus;
-import org.yangxin.webserver.connector.Request;
 
 import javax.servlet.*;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.Date;
 public class TimeServlet implements Servlet {
 
   @Override
-  public void init(ServletConfig servletConfig) throws ServletException {
+  public void init(ServletConfig servletConfig) {
 
   }
 
@@ -24,7 +24,7 @@ public class TimeServlet implements Servlet {
   }
 
   @Override
-  public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+  public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
     PrintWriter out = servletResponse.getWriter();
     out.println(ConnectorUtils.renderStatus(HttpStatus.SC_OK));
     out.println("What time is it now?");

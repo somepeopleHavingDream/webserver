@@ -9,6 +9,7 @@ import org.yangxin.webserver.connector.Connector;
 public final class Bootstrap {
 
     public static void main(String[] args) {
+        // 启动服务端连接器
         Connector connector = new Connector();
         connector.start();
     }
