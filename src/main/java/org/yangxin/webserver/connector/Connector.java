@@ -44,21 +44,26 @@ public class Connector implements Runnable {
     @Override
     public void run() {
         try {
+            // 打开服务套接字通道，设置非阻塞，绑定端口
             ServerSocketChannel server = ServerSocketChannel.open();
             server.configureBlocking(false);
             server.socket().bind(new InetSocketAddress(port));
 
+            // 打开选择器，将服务套接字通道和它关注的事件注册到选择器上
             selector = Selector.open();
             server.register(selector, SelectionKey.OP_ACCEPT);
             System.out.println("启动服务器，监听端口：" + port + "……");
 
+            // 循环监听
             while (true) {
+                // 此处阻塞
                 selector.select();
                 Set<SelectionKey> selectionKeySet = selector.selectedKeys();
                 for (SelectionKey key : selectionKeySet) {
                     // 处理被触发的事件
                     handles(key);
                 }
+                // 清除处理完的事件
                 selectionKeySet.clear();
             }
         } catch (IOException e) {
@@ -68,6 +73,12 @@ public class Connector implements Runnable {
         }
     }
 
+    /**
+     * 事件处理
+     *
+     * @param key 被选择的键
+     * @throws IOException IOException
+     */
     private void handles(SelectionKey key) throws IOException {
         // ACCEPT
         if (key.isAcceptable()) {

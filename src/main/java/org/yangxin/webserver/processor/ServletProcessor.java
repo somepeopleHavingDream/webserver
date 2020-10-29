@@ -17,9 +17,9 @@ import java.net.URLClassLoader;
 public class ServletProcessor {
 
     public URLClassLoader getServletLoader() throws MalformedURLException {
-        File webroot = new File(ConnectorUtils.WEB_ROOT);
-        URL webrootUrl = webroot.toURI().toURL();
-        return new URLClassLoader(new URL[]{webrootUrl});
+        File webRoot = new File(ConnectorUtils.WEB_ROOT);
+        URL webRootUrl = webRoot.toURI().toURL();
+        return new URLClassLoader(new URL[]{webRootUrl});
     }
 
     public Servlet getServlet(URLClassLoader loader, Request request) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
