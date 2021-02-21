@@ -26,7 +26,7 @@ public class ServletProcessor {
         /*
             /servlet/TimeServlet
          */
-        String uri = request.getRequestURI();
+        String uri = request.getRequestUri();
         String servletName = uri.substring(uri.lastIndexOf("/") + 1);
 
         Class<?> servletClass = loader.loadClass(servletName);

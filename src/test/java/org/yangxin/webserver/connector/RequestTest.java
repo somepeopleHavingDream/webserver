@@ -15,6 +15,6 @@ public class RequestTest {
     @Test
     public void givenValidRequestThenExtractUri() {
         Request request = TestUtils.createRequest(VALID_REQUEST);
-        Assert.assertEquals("/index.html", request.getRequestURI());
+        Assert.assertEquals("/index.html", request.getRequestUri());
     }
 }

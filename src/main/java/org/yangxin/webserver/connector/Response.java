@@ -27,7 +27,7 @@ public class Response implements ServletResponse {
     }
 
     public void sentStaticResource() throws IOException {
-        File file = new File(ConnectorUtils.WEB_ROOT, request.getRequestURI());
+        File file = new File(ConnectorUtils.WEB_ROOT, request.getRequestUri());
         try {
             write(file, HttpStatus.SC_OK);
         } catch (IOException e) {

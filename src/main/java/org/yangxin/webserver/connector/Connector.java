@@ -19,6 +19,7 @@ import java.util.Set;
  * @author yangxin
  * 2020/10/02 16:49
  */
+@SuppressWarnings("AlibabaAvoidManuallyCreateThread")
 public class Connector implements Runnable {
 
     private static final int DEFAULT_PORT = 8888;
@@ -101,7 +102,7 @@ public class Connector implements Runnable {
             Response response = new Response(output);
             response.setRequest(request);
 
-            if (request.getRequestURI().startsWith("/servlet/")) {
+            if (request.getRequestUri().startsWith("/servlet/")) {
                 ServletProcessor processor = new ServletProcessor();
                 processor.process(request, response);
             } else {

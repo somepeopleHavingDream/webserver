@@ -28,7 +28,7 @@ public class ResponseTest {
         response.setRequest(request);
         response.sentStaticResource();
 
-        String resource = TestUtils.readFileToString(ConnectorUtils.WEB_ROOT + request.getRequestURI());
+        String resource = TestUtils.readFileToString(ConnectorUtils.WEB_ROOT + request.getRequestUri());
         Assert.assertEquals(STATUS_200 + resource, out.toString());
     }
 

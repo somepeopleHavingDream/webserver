@@ -4,6 +4,7 @@ package org.yangxin.webserver.connector;
  * @author yangxin
  * 2020/10/02 14:20
  */
+@SuppressWarnings("AlibabaEnumConstantsMustHaveComment")
 public enum HttpStatus {
 
     SC_OK(200, "OK"),

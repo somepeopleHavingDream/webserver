@@ -17,14 +17,17 @@ public class ResponseFacade implements ServletResponse {
     this.response = response;
   }
 
+  @Override
   public void flushBuffer() throws IOException {
     response.flushBuffer();
   }
 
+  @Override
   public int getBufferSize() {
     return response.getBufferSize();
   }
 
+  @Override
   public String getCharacterEncoding() {
     return response.getCharacterEncoding();
   }
@@ -34,14 +37,17 @@ public class ResponseFacade implements ServletResponse {
     return null;
   }
 
+  @Override
   public Locale getLocale() {
     return response.getLocale();
   }
 
+  @Override
   public ServletOutputStream getOutputStream() throws IOException {
     return response.getOutputStream();
   }
 
+  @Override
   public PrintWriter getWriter() throws IOException {
     return response.getWriter();
   }
@@ -51,22 +57,27 @@ public class ResponseFacade implements ServletResponse {
 
   }
 
+  @Override
   public boolean isCommitted() {
     return response.isCommitted();
   }
 
+  @Override
   public void reset() {
     response.reset();
   }
 
+  @Override
   public void resetBuffer() {
     response.resetBuffer();
   }
 
+  @Override
   public void setBufferSize(int size) {
     response.setBufferSize(size);
   }
 
+  @Override
   public void setContentLength(int length) {
     response.setContentLength(length);
   }
@@ -76,10 +87,12 @@ public class ResponseFacade implements ServletResponse {
 
   }
 
+  @Override
   public void setContentType(String type) {
     response.setContentType(type);
   }
 
+  @Override
   public void setLocale(Locale locale) {
     response.setLocale(locale);
   }
